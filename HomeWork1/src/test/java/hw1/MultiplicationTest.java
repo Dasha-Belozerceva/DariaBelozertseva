@@ -6,6 +6,6 @@ import org.testng.annotations.Test;
 public class MultiplicationTest extends DataProviderTestClass {
     @Test(dataProvider = "calculator DataProvider with 2 args")
     public void multMethodTest(double a, double b){
-        Assert.assertNotEquals(calculator.mult(a, b), a * b);
+        Assert.assertEquals(calculator.mult(a, b), a * b);
     }
 }
