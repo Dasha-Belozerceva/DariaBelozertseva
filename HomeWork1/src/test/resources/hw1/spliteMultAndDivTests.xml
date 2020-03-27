@@ -4,7 +4,8 @@
         <classes>
             <class name = "hw1.MultiplicationTest">
                 <methods>
-                    <include name="multMethodTest"/>
+                    <include name="multDoubleArgsMethodTest"/>
+                    <include name="multIntegerArgsMethodTest"/>
                 </methods>
             </class>
             <class name="hw1.DivisionTest">
