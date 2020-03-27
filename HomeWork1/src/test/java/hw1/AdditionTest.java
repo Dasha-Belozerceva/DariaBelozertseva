@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AdditionTest extends DataProviderTestClass {
-    @Test(dataProvider = "calculator DataProvider with 2 args")
+    @Test(dataProvider = "calculator DataProvider with 2 double args")
     public void sumMethodTest(double a, double b){
         Assert.assertEquals(calculator.sum(a, b), a + b);
     }
