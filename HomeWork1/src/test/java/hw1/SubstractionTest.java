@@ -1,11 +1,11 @@
 package hw1;
 
-import org.testng.Assert;
+import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
 public class SubstractionTest extends DataProviderTestClass {
     @Test(dataProvider = "calculator DataProvider with 2 double args")
     public void subMethodTest(double a, double b){
-        Assert.assertEquals(calculator.sub(a, b), a - b);
+        assertEquals(calculator.sub(a, b), a - b);
     }
 }
