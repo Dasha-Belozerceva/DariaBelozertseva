@@ -1,18 +1,7 @@
 package hw1;
-
-import com.epam.tat.module4.Calculator;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 
 public class DataProviderTestClass {
-    protected Calculator calculator;
-
-    @BeforeMethod
-    public void setCalculator(){
-        calculator = new Calculator();
-    }
-
     @DataProvider(name = "calculator DataProvider with 2 double args")
     public static Object[][] calculatorDoubleDataProviderWithTwoArgs(){
         return new Object[][] {
@@ -44,8 +33,4 @@ public class DataProviderTestClass {
         };
     }
 
-    @AfterMethod
-    public void tearDown(){
-        calculator = null;
-    }
 }
