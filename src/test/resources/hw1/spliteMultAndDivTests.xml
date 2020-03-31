@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name = "mult and div suite">
+    <test name = "mult_div test">
+        <classes>
+            <class name = "hw1.MultiplicationTest">
+                <methods>
+                    <include name="multDoubleArgsMethodTest"/>
+                    <include name="multIntegerArgsMethodTest"/>
+                </methods>
+            </class>
+            <class name="hw1.DivisionTest">
+                <methods>
+                    <include name="divMethodTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

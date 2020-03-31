@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name = "all tests suite">
+    <suite-files>
+        <suite-file path="spliteAddAndSubTests.xml"></suite-file>
+        <suite-file path="spliteMultAndDivTests.xml"></suite-file>
+    </suite-files>
+    <test name = "general_suite">
+        <classes>
+            <class name = "hw1.ExponentiationTest"/>
+            <class name = "hw1.CosinusTest"/>
+        </classes>
+    </test>
+</suite>

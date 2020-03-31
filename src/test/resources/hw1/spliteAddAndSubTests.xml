@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name = "sum and sub suite">
+    <test name = "sum_sub test">
+        <classes>
+            <class name = "hw1.AdditionTest">
+                <methods>
+                    <include name="sumMethodTest"/>
+                </methods>
+            </class>
+            <class name="hw1.SubstractionTest">
+                <methods>
+                    <include name="subMethodTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
