@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.epam.db</groupId>
-    <artifactId>HomeWork1</artifactId>
+    <artifactId>DariaBelozertseva</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -17,11 +17,29 @@
         </dependency>
 
         <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>com.epam.db</groupId>
-            <artifactId>HomeWork1</artifactId>
+            <artifactId>DariaBelozertseva</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/test/resources/hw1/calculator-1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
         </dependency>
     </dependencies>
 
@@ -55,6 +73,36 @@
                 <suite.xml>src/test/resources/hw1/allTests.xml</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>Exercise1_Test</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw2/ExOneSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Exercise2_suite</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw2/ExTwoSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>AllTests_suite</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw2/AllTestsSuite.xml</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <properties>
@@ -67,6 +115,9 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <!-- Libraries version -->
         <testing.version>7.1.0</testing.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
+        <commons-io.version>2.6</commons-io.version>
+        <webdrivermanager.version>3.8.1</webdrivermanager.version>
     </properties>
 
     <build>
