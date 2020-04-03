@@ -4,6 +4,8 @@ import hw2.CommonMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import static org.testng.Assert.*;
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -51,6 +53,7 @@ public class Exercise1 extends CommonMethods {
         // 11. Assert that there are 5 items in the Left Section are displayed and they have proper text
         checkItemsOnSideBarMenu(softAssert);
 
+        softAssert.assertAll();
         // 12. Close Browser
         // Look at CommonMethods.tearDown();
     }
@@ -98,7 +101,11 @@ public class Exercise1 extends CommonMethods {
                 "(about 20 internal and\n" +
                 "some external projects),\n" +
                 "wish to get more…");
-        sa.assertEquals(textUnderImages, expectedTextUnderImages);
+        List<String> actualTextUnderImages = new ArrayList<String>();
+        for(WebElement element : textUnderImages){
+            actualTextUnderImages.add(element.getText());
+        }
+        sa.assertEquals(actualTextUnderImages, expectedTextUnderImages);
     }
     
     public void assertWebElementIsDisplayed(WebElement webElement, SoftAssert sa){

@@ -26,14 +26,14 @@ public class Exercise2 extends CommonMethods {
         openDifferentElementsPage();
 
         // 6. Select checkboxes
-        selectElementAndCheckIfSelected("Water", "//label[contains(string(), '" + "Water" + "')]/input");
-        selectElementAndCheckIfSelected("Water", "//label[contains(string(), '" + "Wind" + "')]/input");
+        selectElementAndCheckIfSelected("Water", "//label[contains(string(), 'Water')]/input");
+        selectElementAndCheckIfSelected("Water", "//label[contains(string(), 'Wind')]/input");
 
         // 7. Select radio
-        selectElementAndCheckIfSelected("Selen", "//label[contains(string(), '" + "Selen" + "')]/input");
+        selectElementAndCheckIfSelected("Selen", "//label[contains(string(), 'Selen')]/input");
 
         // 8. Select in dropdown
-        selectElementAndCheckIfSelected("Yellow", "//*[@class='uui-form-element']/option[contains(., '" + "Yellow" + "')]");
+        selectElementAndCheckIfSelected("Yellow", "//*[@class='uui-form-element']/option[contains(., 'Yellow')]");
 
         // 9. Assert that
         // 9.1. for each checkbox there is an individual log row and value is corresponded to the status of checkbox

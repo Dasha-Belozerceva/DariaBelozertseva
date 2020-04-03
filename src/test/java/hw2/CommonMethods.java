@@ -37,8 +37,8 @@ public class CommonMethods {
         driver.findElement(By.id("login-button")).click();
     }
 
-   /*@AfterClass
+   @AfterClass
    public void tearDown(){
         driver.close();
-    }*/
+    }
 }
