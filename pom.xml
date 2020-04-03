@@ -70,7 +70,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/hw1/allTests.xml</suite.xml>
+                <suite.xml>src/test/resources/hw1/allHw1Tests.xml</suite.xml>
             </properties>
         </profile>
 
@@ -100,7 +100,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/hw2/AllTestsSuite.xml</suite.xml>
+                <suite.xml>src/test/resources/hw2/AllHw2Tests.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
