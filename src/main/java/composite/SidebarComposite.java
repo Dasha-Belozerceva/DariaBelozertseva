@@ -1,17 +1,12 @@
 package composite;
-
-import static utils.UtilsMethods.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.asserts.SoftAssert;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class SidebarComposite extends AbstractPageComposite {
+public class    SidebarComposite extends AbstractPageComposite {
     @FindBy(css = ".sidebar-menu > li")
     private List<WebElement> sideBarMenuElements;
 
@@ -26,18 +21,16 @@ public class SidebarComposite extends AbstractPageComposite {
         PageFactory.initElements(driver, this);
     }
 
-    public void checkItemsOnSideBarMenu(SoftAssert sa){
-        List<String> actualTextOnSideBarElements = Arrays.asList("Home", "Contact form", "Service",
-                "Metals & Colors", "Elements packs");
-        for(WebElement webElement : sideBarMenuElements){
-            assertWebElementIsDisplayed(webElement, sa);
-        }
+    public List<WebElement> getSideBarMenuElements(){
+        return this.sideBarMenuElements;
+    }
+
+    public List<String> getSidebarElementsText(){
         List<String> textOfMenuElements = new ArrayList<String>();
         for(WebElement webElement : sideBarMenuElements){
             textOfMenuElements.add(webElement.getText());
         }
-
-        sa.assertEquals(textOfMenuElements, actualTextOnSideBarElements);
+        return textOfMenuElements;
     }
 
     public void openDifferentElementsPage(){
