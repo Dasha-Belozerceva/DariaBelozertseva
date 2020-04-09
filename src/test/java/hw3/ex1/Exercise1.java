@@ -1,11 +1,9 @@
 package hw3.ex1;
 
 import hw3.CommonMethods;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 import org.testng.asserts.SoftAssert;
-import voids.EpamUserIndexPage;
+import hw3.voids.EpamUserIndexPage;
 
 public class Exercise1 extends CommonMethods {
     @Test

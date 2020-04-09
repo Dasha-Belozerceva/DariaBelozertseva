@@ -1,10 +1,8 @@
 package hw3.ex2;
 
-import org.openqa.selenium.WebElement;
-import org.testng.asserts.SoftAssert;
-import voids.AbstractPage;
-import voids.DifferentElementsPage;
-import voids.EpamUserIndexPage;
+import hw3.voids.AbstractPage;
+import hw3.voids.DifferentElementsPage;
+import hw3.voids.EpamUserIndexPage;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;

@@ -3,8 +3,8 @@ import org.testng.asserts.SoftAssert;
 import java.util.Arrays;
 import java.util.List;
 
-import voids.AbstractPage;
-import voids.EpamUserIndexPage;
+import hw3.voids.AbstractPage;
+import hw3.voids.EpamUserIndexPage;
 
 public class Ex1Assertions {
 

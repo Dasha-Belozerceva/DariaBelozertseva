@@ -2,8 +2,8 @@ package hw3.ex2;
 
 import hw3.CommonMethods;
 import org.testng.annotations.Test;
-import voids.DifferentElementsPage;
-import voids.EpamUserIndexPage;
+import hw3.voids.DifferentElementsPage;
+import hw3.voids.EpamUserIndexPage;
 
 public class Exercise2 extends CommonMethods {
     @Test

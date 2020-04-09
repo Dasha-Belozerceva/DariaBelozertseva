@@ -1,13 +1,12 @@
-package voids;
+package hw3.voids;
 
-import composite.AbstractPageComposite;
-import composite.HeaderSectionComposite;
-import composite.SidebarComposite;
+import hw3.composite.AbstractPageComposite;
+import hw3.composite.HeaderSectionComposite;
+import hw3.composite.SidebarComposite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
