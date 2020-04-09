@@ -5,6 +5,9 @@ import org.testng.annotations.Test;
 import hw3.voids.DifferentElementsPage;
 import hw3.voids.EpamUserIndexPage;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 public class Exercise2 extends CommonMethods {
     @Test
     public void secondExerciseTest() {
@@ -14,13 +17,13 @@ public class Exercise2 extends CommonMethods {
         // Look at CommonMethods.setUp();
 
         // 2. Assert Browser Title
-        Ex2Assertions.assertBrowserTitle(epamUserIndexPage);
+        assertEquals(epamUserIndexPage.getBrowserTitle(), "Home Page");
 
         // 3. Perform login
         epamUserIndexPage.performLogin(loginData.getProperty("user"), loginData.getProperty("password"));
 
         // 4. Assert User name in the left-top side of screen that user is loggined
-        Ex2Assertions.assertUsernameIsLoggined(epamUserIndexPage);
+        assertEquals(epamUserIndexPage.getUserNameText(), "ROMAN IOVLEV");
 
         // 5. Open through the header menu Service -> Different Elements Page
         epamUserIndexPage.openDifferentElementsPage();
@@ -37,12 +40,14 @@ public class Exercise2 extends CommonMethods {
 
         // 9. Assert that
         // 9.1. for each checkbox there is an individual log row and value is corresponded to the status of checkbox
-        Ex2Assertions.checkLogRows(differentElementsPage, "Water", "true");
-        Ex2Assertions.checkLogRows(differentElementsPage, "Wind", "true");
+        assertTrue(differentElementsPage.logRowsElementIsDisplayed("Water", "true"));
+        assertTrue(differentElementsPage.logRowsElementIsDisplayed("Wind", "true"));
+
+
         // 9.2. for radio button there is a log row and value is corresponded to the status of radio button
-        Ex2Assertions.checkLogRows(differentElementsPage, "metal", "Selen");
+        assertTrue(differentElementsPage.logRowsElementIsDisplayed("metal", "Selen"));
         // 9.3. for dropdown there is a log row and value is corresponded to the selected value
-        Ex2Assertions.checkLogRows(differentElementsPage, "Colors", "Yellow");
+        assertTrue(differentElementsPage.logRowsElementIsDisplayed("Colors", "Yellow"));
     }
 
 

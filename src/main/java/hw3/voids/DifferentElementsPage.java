@@ -59,4 +59,8 @@ public class DifferentElementsPage extends AbstractPage {
                         .get();
         return logElement;
     }
+
+    public boolean logRowsElementIsDisplayed(String choosedOption, String condition){
+        return getLogRowsElements(choosedOption, condition).isDisplayed();
+    }
 }
