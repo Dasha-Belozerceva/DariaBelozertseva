@@ -52,12 +52,17 @@ public class EpamUserIndexPage extends AbstractPage {
         loginButton.click();
     }
 
-    public List<WebElement> getListOfImages() {
-        return this.listOfImages;
+
+    public boolean allImagesAreDisplayed(){
+        boolean isDisplayed = true;
+        for(WebElement webElement: this.listOfImages){
+            isDisplayed = (isDisplayed)&&(webElement.isDisplayed());
+        }
+        return isDisplayed;
     }
 
-    public List<WebElement> getTextUnderImagesElements() {
-        return this.textUnderImagesElements;
+    public int getListOfImagesSize(){
+        return this.listOfImages.size();
     }
 
     public int getTextUnderImagesSize() {
@@ -72,12 +77,12 @@ public class EpamUserIndexPage extends AbstractPage {
         return actualTextUnderImages;
     }
 
-    public WebElement getIframe() {
-        return this.iframe;
+    public boolean iframeIsDisplayed(){
+        return this.iframe.isDisplayed();
     }
 
-    public WebElement getFrameButton(){
-        return this.frameButton;
+    public boolean iframeButtonIsDisplayed(){
+        return this.frameButton.isDisplayed();
     }
 
     public void switchToIframe() {

@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class    SidebarComposite extends AbstractPageComposite {
     @FindBy(css = ".sidebar-menu > li")
@@ -18,19 +19,20 @@ public class    SidebarComposite extends AbstractPageComposite {
 
     public SidebarComposite(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
     }
 
-    public List<WebElement> getSideBarMenuElements(){
-        return this.sideBarMenuElements;
+    public boolean SidebarElementsAreDisplayed(){
+        boolean isDisplayed = true;
+        for(WebElement webElement: this.sideBarMenuElements){
+            isDisplayed = (isDisplayed)&&(webElement.isDisplayed());
+        }
+        return isDisplayed;
     }
 
     public List<String> getSidebarElementsText(){
-        List<String> textOfMenuElements = new ArrayList<String>();
-        for(WebElement webElement : sideBarMenuElements){
-            textOfMenuElements.add(webElement.getText());
-        }
-        return textOfMenuElements;
+        return sideBarMenuElements.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
     }
 
     public void openDifferentElementsPage(){

@@ -1,29 +1,19 @@
 package hw3.ex1;
-
-import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 import java.util.Arrays;
 import java.util.List;
 
-import composite.HeaderSectionComposite;
 import voids.AbstractPage;
 import voids.EpamUserIndexPage;
 
-import static org.testng.Assert.assertEquals;
-
 public class Ex1Assertions {
-    public static void assertWebElementIsDisplayed(WebElement webElement, SoftAssert sa){
-        sa.assertTrue(webElement.isDisplayed());
-    }
 
     private static void checkHeaderSectionElementsValue(SoftAssert sa, AbstractPage page){
         sa.assertEquals(page.getActualHeaderSectionElementsSize(), 4);
     }
 
     private static void checkHeaderSectionElementsNames(SoftAssert sa, AbstractPage page){
-        for(WebElement webElement: page.getHeaderSectionElements()){
-            assertWebElementIsDisplayed(webElement, sa);
-        }
+        sa.assertTrue(page.HeaderSectionElementsAreDisplayed());
         List<String> expected = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
         sa.assertEquals(page.getActualHeaderSectionElementsNames(), expected);
     }
@@ -34,9 +24,7 @@ public class Ex1Assertions {
     }
 
     private static void assertSideBarElementsAreDisplayed(SoftAssert sa, AbstractPage page){
-        for(WebElement webElement : page.getSideBarElements()){
-            assertWebElementIsDisplayed(webElement, sa);
-        }
+        sa.assertTrue(page.SidebarElementsAreDisplayed());
     }
 
     private static void checkTextOnSideBarMenuElements(SoftAssert sa, AbstractPage page){
@@ -61,11 +49,8 @@ public class Ex1Assertions {
     }
 
     public static void checkImagesOnIndexPage(SoftAssert sa, EpamUserIndexPage indexPage){
-        List<WebElement> listOfImages = indexPage.getListOfImages();
-        sa.assertEquals(listOfImages.size(), 4);
-        for(WebElement webElement : listOfImages){
-            assertWebElementIsDisplayed(webElement, sa);
-        }
+        sa.assertEquals(indexPage.getListOfImagesSize(), 4);
+        indexPage.allImagesAreDisplayed();
     }
 
     private static void checkValueOfTextsUnderImages(SoftAssert sa, EpamUserIndexPage indexPage){
@@ -93,10 +78,10 @@ public class Ex1Assertions {
     }
 
     public static void assertFrameIsDisplayed(SoftAssert sa, EpamUserIndexPage indexPage){
-        assertWebElementIsDisplayed(indexPage.getIframe(), sa);
+        sa.assertTrue(indexPage.iframeIsDisplayed());
     }
 
     public static void assertFrameButtonIsDisplayed(SoftAssert sa, EpamUserIndexPage indexPage){
-        assertWebElementIsDisplayed(indexPage.getFrameButton(), sa);
+        sa.assertTrue(indexPage.iframeButtonIsDisplayed());
     }
 }

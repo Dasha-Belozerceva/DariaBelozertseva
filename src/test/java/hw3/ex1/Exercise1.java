@@ -10,17 +10,7 @@ import voids.EpamUserIndexPage;
 public class Exercise1 extends CommonMethods {
     @Test
     public void firstExerciseTest(){
-        SoftAssert softAssert = new SoftAssert(){
-            @Override
-            public void assertTrue(final boolean condition) {
-                Assert.assertTrue(condition);
-            }
-
-            @Override
-            public <T> void assertEquals(final T actual, final T expected) {
-                Assert.assertEquals(actual, expected);
-            }
-        };
+        SoftAssert softAssert = new SoftAssert();
         EpamUserIndexPage epamUserIndexPage = new EpamUserIndexPage(driver);
 
         // 1. Open test site by URL

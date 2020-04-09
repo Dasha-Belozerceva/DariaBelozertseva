@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import static org.testng.Assert.assertTrue;
@@ -16,14 +17,8 @@ public class DifferentElementsPage extends AbstractPage {
     @FindBy(className = "label-radio")
     private List<WebElement> radioOptions;
 
-    @FindBy(css = "select[class='uui-form-element']")
+    @FindBy(xpath = "//select[@class='uui-form-element']")
     private WebElement dropDown;
-
-    @FindBy(css = "option")
-    private List<WebElement> colors;
-
-//    @FindBy(xpath = "//*[@class='uui-form-element']/option[contains(., 'Yellow')]")
-//    private WebElement dropDownElement;
 
     @FindBy(xpath = "//ul[@class='panel-body-list logs']")
     private List<WebElement> listOfLogs;
@@ -31,7 +26,6 @@ public class DifferentElementsPage extends AbstractPage {
 
     public DifferentElementsPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
     }
 
     private void selectElement(String text, List<WebElement> elements) {
@@ -53,12 +47,8 @@ public class DifferentElementsPage extends AbstractPage {
     }
 
     public void selectDropDownElement(String text) {
-        dropDown.click();
-        for (WebElement element : colors) {
-            if (text.equals(element.getText())) {
-                element.click();
-            }
-        }
+        Select dropdown = new Select(dropDown);
+        dropdown.selectByVisibleText(text);
     }
 
     public WebElement getLogRowsElements(String choosedOption, String condition){
