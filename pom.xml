@@ -10,6 +10,14 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.epam.db</groupId>
+            <artifactId>DariaBelozertseva</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/test/resources/hw1/calculator-1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testing.version}</version>
@@ -28,18 +36,17 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.epam.db</groupId>
-            <artifactId>DariaBelozertseva</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/test/resources/hw1/calculator-1.0.jar</systemPath>
-        </dependency>
 
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.1.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -65,9 +72,9 @@
         </profile>
 
         <profile>
-            <id>all_Tests</id>
+            <id>HW1_all_Tests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw1/allHw1Tests.xml</suite.xml>
@@ -75,7 +82,7 @@
         </profile>
 
         <profile>
-            <id>Exercise1_Test</id>
+            <id>HW2_Exercise1_Test</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -85,7 +92,7 @@
         </profile>
 
         <profile>
-            <id>Exercise2_suite</id>
+            <id>HW2_Exercise2_suite</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -95,7 +102,7 @@
         </profile>
 
         <profile>
-            <id>AllTests_suite</id>
+            <id>HW2_AllTests_suite</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -103,14 +110,46 @@
                 <suite.xml>src/test/resources/hw2/AllHw2Tests.xml</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>HW3_Exercise1_Test</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/ExOneHW3Suite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW3_Exercise2_suite</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/ExTwoHW3Suite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW3_AllTests_suite</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/AllHw3Tests.xml</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
         <!-- plugins version -->
-<!--        <maven.compiler.source>1.8</maven.compiler.source>-->
-<!--        <maven.compiler.target>1.8</maven.compiler.target>-->
+        <!--        <maven.compiler.source>1.8</maven.compiler.source>-->
+        <!--        <maven.compiler.target>1.8</maven.compiler.target>-->
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <!-- Libraries version -->
