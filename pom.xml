@@ -67,7 +67,7 @@
         <profile>
             <id>all_Tests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw1/allHw1Tests.xml</suite.xml>
@@ -101,6 +101,36 @@
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw2/AllHw2Tests.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw4_AllTests_suite</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src\test\resources\hw4\hw4_allTestsSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw4_ex1_suite</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src\test\resources\hw4\hw4_ex1suite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw4_ex2_suite</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src\test\resources\hw4\hw4_ex2suite.xml</suite.xml>
             </properties>
         </profile>
     </profiles>

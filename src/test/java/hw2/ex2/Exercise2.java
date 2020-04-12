@@ -27,7 +27,7 @@ public class Exercise2 extends CommonMethods {
 
         // 6. Select checkboxes
         selectElementAndCheckIfSelected("Water", "//label[contains(string(), 'Water')]/input");
-        selectElementAndCheckIfSelected("Water", "//label[contains(string(), 'Wind')]/input");
+        selectElementAndCheckIfSelected("Wind", "//label[contains(string(), 'Wind')]/input");
 
         // 7. Select radio
         selectElementAndCheckIfSelected("Selen", "//label[contains(string(), 'Selen')]/input");
