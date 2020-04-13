@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class    SidebarComposite extends AbstractPageComposite {
     @FindBy(css = ".sidebar-menu > li")
-    private List<WebElement> sideBarMenuElements;
+    private List<WebElement> leftSidebarElements;
 
     @FindBy(linkText = "Service")
     private WebElement serviceButton;
@@ -22,14 +22,14 @@ public class    SidebarComposite extends AbstractPageComposite {
 
     public boolean SidebarElementsAreDisplayed(){
         boolean isDisplayed = true;
-        for(WebElement webElement: this.sideBarMenuElements){
+        for(WebElement webElement: this.leftSidebarElements){
             isDisplayed = (isDisplayed)&&(webElement.isDisplayed());
         }
         return isDisplayed;
     }
 
     public List<String> getSidebarElementsText(){
-        return sideBarMenuElements.stream()
+        return leftSidebarElements.stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
     }
