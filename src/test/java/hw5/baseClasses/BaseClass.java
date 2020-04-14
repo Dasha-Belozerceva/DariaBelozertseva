@@ -1,4 +1,4 @@
-package hw3;
+package hw5.baseClasses;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -15,10 +15,9 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class CommonMethods {
+public abstract class BaseClass {
     protected WebDriver driver;
-    protected Properties loginData;
-    protected final static String web_site = "https://jdi-testing.github.io/jdi-light/index.html";
+    protected Properties propertyData;
 
     @BeforeSuite
     public void setUpDriver(){
@@ -26,17 +25,16 @@ public class CommonMethods {
     }
 
     @BeforeClass
-    public void setUp() throws FileNotFoundException {
-        driver = new ChromeDriver();
-        // 1. Open test site by URL
-        driver.get(web_site);
+    public void setUp(){
+        SingletonDriver.INSTANCE.createDriver("chrome");
+        driver = SingletonDriver.INSTANCE.getDriver();
         driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
         driver.manage().window().maximize();
 
-        loginData = new Properties();
+        propertyData = new Properties();
         try {
-            InputStream input = new FileInputStream("src/test/resources/hw3/hw5_data.properties");
-            loginData.load(input);
+            InputStream input = new FileInputStream("src/test/resources/hw5/hw5_data.properties");
+            propertyData.load(input);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -46,6 +44,6 @@ public class CommonMethods {
 
    @AfterClass
    public void tearDown(){
-        driver.close();
+       SingletonDriver.INSTANCE.getDriver().close();
     }
 }
