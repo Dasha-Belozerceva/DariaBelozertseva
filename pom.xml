@@ -28,6 +28,7 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium-java.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
@@ -36,11 +37,23 @@
             <scope>test</scope>
         </dependency>
 
-
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -66,7 +79,7 @@
         </profile>
 
         <profile>
-            <id>hw1_all_Tests</id>
+            <id>HW1_all_Tests</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -76,7 +89,7 @@
         </profile>
 
         <profile>
-            <id>hw2_Exercise1_Test</id>
+            <id>HW2_Exercise1_Test</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -86,7 +99,7 @@
         </profile>
 
         <profile>
-            <id>hw2_Exercise2_suite</id>
+            <id>HW2_Exercise2_suite</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -96,7 +109,7 @@
         </profile>
 
         <profile>
-            <id>hw2_AllTests_suite</id>
+            <id>HW2_AllTests_suite</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -138,7 +151,7 @@
         <profile>
             <id>hw4_AllTests_suite</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src\test\resources\hw4\hw4_allTestsSuite.xml</suite.xml>
@@ -162,16 +175,59 @@
             </activation>
             <properties>
                 <suite.xml>src\test\resources\hw4\hw4_ex2suite.xml</suite.xml>
+                <suite.xml>src/test/resources/hw5/hw5_tests.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW5_AllTests_suite</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw5/hw5_tests.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW5_ex1_test_suite</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw5/hw5_ex1.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW5_ex2_test_suite</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw5/hw5_ex2.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW5_ex1_error_test_suite</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw5/hw5_errorEx1.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
         <!-- plugins version -->
-<!--        <maven.compiler.source>1.8</maven.compiler.source>-->
-<!--        <maven.compiler.target>1.8</maven.compiler.target>-->
+        <!--        <maven.compiler.source>1.8</maven.compiler.source>-->
+        <!--        <maven.compiler.target>1.8</maven.compiler.target>-->
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <!-- Libraries version -->
@@ -179,6 +235,10 @@
         <selenium-java.version>3.141.59</selenium-java.version>
         <commons-io.version>2.6</commons-io.version>
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
+        <assertj.version>3.15.0</assertj.version>
+        <allure.version>2.13.2</allure.version>
+        <aspectj.version>1.8.10</aspectj.version>
+        <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
     </properties>
 
     <build>
@@ -200,6 +260,26 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite.xml}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven-plugin.version}</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                    <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
                 </configuration>
             </plugin>
         </plugins>
