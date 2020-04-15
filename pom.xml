@@ -66,7 +66,7 @@
         </profile>
 
         <profile>
-            <id>HW1_all_Tests</id>
+            <id>hw1_all_Tests</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -76,7 +76,7 @@
         </profile>
 
         <profile>
-            <id>HW2_Exercise1_Test</id>
+            <id>hw2_Exercise1_Test</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -86,7 +86,7 @@
         </profile>
 
         <profile>
-            <id>HW2_Exercise2_suite</id>
+            <id>hw2_Exercise2_suite</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -96,7 +96,7 @@
         </profile>
 
         <profile>
-            <id>HW2_AllTests_suite</id>
+            <id>hw2_AllTests_suite</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -134,16 +134,44 @@
                 <suite.xml>src/test/resources/hw3/AllHw3Tests.xml</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>hw4_AllTests_suite</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src\test\resources\hw4\hw4_allTestsSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw4_ex1_suite</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src\test\resources\hw4\hw4_ex1suite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw4_ex2_suite</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src\test\resources\hw4\hw4_ex2suite.xml</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
         <!-- plugins version -->
-        <!--        <maven.compiler.source>1.8</maven.compiler.source>-->
-        <!--        <maven.compiler.target>1.8</maven.compiler.target>-->
+<!--        <maven.compiler.source>1.8</maven.compiler.source>-->
+<!--        <maven.compiler.target>1.8</maven.compiler.target>-->
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <!-- Libraries version -->

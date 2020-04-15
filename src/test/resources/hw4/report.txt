@@ -1,0 +1,40 @@
+Solution analisys from the TAF architecture point of view
+
+1. Test logic layer
+Includes classes:
+ /test/java/hw4/ex1/exercise1 and /test/java/hw4/ex2/exercise2
+
+2. Test logic implementation layer
+Includes all classes from following directory: main/java/hw4
+Used patterns: Page Object, Composite, Fluent, Builder
+Used: TestNg for assertions
+Selenuim Web Driver for working with browser
+
+3. Test data layer
+Includes following classes: MetalsAndColorsDataProvider, test resources: hw4_data.properties, BaseClass
+Used pattern: Data Provider
+Used property file with name and password for login method
+
+4. Test running layer
+surefire plugin
+suites.xml files from test resources
+TestNg and Maven for running tests
+
+5. Report ang log layer
+ -/-
+
+6. Services
+-/-
+
+7. Configuration layer
+setUp method in BaseClass (configuration for browser)
+Used browser Chrome, version: 80.0.3987.163
+Maximazed window configuration
+
+8. Utils layer
+setUp method in Base class works with propperties for provide data to test
+
+Solution could be improved:
+1. Add Report ang log layer (Allure, log4j logger)
+2. Add Services layer (Use some data base to store data there)
+3. Utils layer could be provided in separated class with special method
