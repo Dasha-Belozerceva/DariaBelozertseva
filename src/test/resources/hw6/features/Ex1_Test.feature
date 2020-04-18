@@ -11,8 +11,10 @@ Feature: Exercize1 feature
     And I select checkbox 'Wind'
     And I select radio 'Selen'
     And I select in dropdown 'Yellow'
-    Then LogRow should be displayed with value 'Water' and condition 'true'
-    And LogRow should be displayed with value 'Wind' and condition 'true'
-    And LogRow should be displayed with value 'metal' and condition 'Selen'
-    And LogRow should be displayed with value 'Colors' and condition 'Yellow'
+    And LogRow should contain following values:
+    |value |condition|
+    |Water |true     |
+    |Wind  |true     |
+    |metal |Selen    |
+    |Colors|Yellow   |
 

@@ -1,6 +1,7 @@
 package hw6.steps;
 
 import hw6.entities.DropdownTable;
+import hw6.entities.LogrowTable;
 import hw6.entities.UserTable;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Then;
@@ -22,10 +23,17 @@ public class ThenSteps extends BaseSteps {
         assertEquals(epamUserIndexPage.getUserNameText(), string);
     }
 
+    @DataTableType
+    public LogrowTable logrowTable(Map<String, String> entry){
+        return new LogrowTable(entry.get("value"), entry.get("condition"));
+    }
 
-    @Then("LogRow should be displayed with value {string} and condition {string}")
-    public void logRowStringShouldBe(String option, String condition) {
-        assertTrue(differentElementsPage.logRowsElementIsDisplayed(option, condition));
+    @Then("LogRow should contain following values:")
+    public void logrowShouldContain(List<LogrowTable> logrowTables){
+        for(int i = 0; i < logrowTables.size(); i++){
+            assertTrue(differentElementsPage.logRowsElementIsDisplayed(logrowTables.get(i).getLogrowValue(),
+                    logrowTables.get(i).getLogrowCondition()));
+        }
     }
 
     @Then("{int} Number Type Dropdowns should be displayed on Users Table on User Table Page")
