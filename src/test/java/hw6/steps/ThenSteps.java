@@ -1,5 +1,6 @@
 package hw6.steps;
 
+import hw6.entities.DropdownTable;
 import hw6.entities.UserTable;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Then;
@@ -61,10 +62,17 @@ public class ThenSteps extends BaseSteps {
         }
     }
 
+    @DataTableType
+    public DropdownTable dropdownTable(Map<String, String> entry){
+        return new DropdownTable(entry.get("Dropdown Values"));
+    }
+
     @Then("droplist should contain values in column Type for user {string}")
-    public void droplistShouldContain(String name, List<String> values){
-        assertEquals(userTablePage.optionsInNumberTypeDropdown(name),
-                values.get(1) + values.get(2) + values.get(3));
+    public void droplistShouldContain(String name, List<DropdownTable> dropdownTable){
+        for (int i = 0; i < dropdownTable.size(); i++){
+            assertEquals(userTablePage.optionsInNumberTypeDropdown(name).get(i),
+                    dropdownTable.get(i).getDropdownValue());
+        }
     }
 
     @Then("1 log row has {string} text in log section")

@@ -70,7 +70,7 @@ public class UserTablePage extends AbstractPage {
         return descriptionTexts;
     }
 
-    public String optionsInNumberTypeDropdown(String name) {
+    public List<String> optionsInNumberTypeDropdown(String name) {
         int index = 0;
        for (int i = 0; i < numberTypeDropdowns.size(); ++i){
             if (name.equals(userNames.get(i).getText())){
@@ -83,7 +83,7 @@ public class UserTablePage extends AbstractPage {
        for (int i = 0; i < select.getOptions().size(); ++i){
            options.add(select.getOptions().get(i).getText());
        }
-       return  options.get(0) + options.get(1) + options.get(2);
+       return options;
     }
 
     public void clickVipCheckboxForUsername(String name){
