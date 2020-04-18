@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
-import static org.testng.Assert.assertTrue;
 
 public class DifferentElementsPage extends AbstractPage {
 //    @FindBy(xpath = "//*[@class='label-checkbox']//input")

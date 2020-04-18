@@ -1,4 +1,4 @@
-package hw3.voids;
+package hw6.voids;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
