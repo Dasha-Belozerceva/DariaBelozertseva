@@ -24,16 +24,13 @@ public class ThenSteps extends BaseSteps {
     }
 
     @DataTableType
-    public LogrowTable logrowTable(Map<String, String> entry){
+    public LogrowTable logrowTable(Map<String, String> entry) {
         return new LogrowTable(entry.get("value"), entry.get("condition"));
     }
 
     @Then("LogRow should contain following values:")
-    public void logrowShouldContain(List<LogrowTable> logrowTables){
-        for(int i = 0; i < logrowTables.size(); i++){
-            assertTrue(differentElementsPage.logRowsElementIsDisplayed(logrowTables.get(i).getLogrowValue(),
-                    logrowTables.get(i).getLogrowCondition()));
-        }
+    public void logrowShouldContain(List<LogrowTable> logrowTables) {
+        assertTrue(differentElementsPage.logRowsElementIsDisplayed(logrowTables));
     }
 
     @Then("{int} Number Type Dropdowns should be displayed on Users Table on User Table Page")
@@ -52,39 +49,32 @@ public class ThenSteps extends BaseSteps {
     }
 
     @Then("{int} checkboxes should be displayed on Users Table on User Table Page")
-    public void valueOfCheckBoxesShouldBe(int value){
+    public void valueOfCheckBoxesShouldBe(int value) {
         assertEquals(userTablePage.checkboxesUnderImagesValue(), value);
     }
 
     @DataTableType
-    public UserTable userTable(Map<String, String> entry){
+    public UserTable userTable(Map<String, String> entry) {
         return new UserTable(entry.get("Number"), entry.get("User"), entry.get("Description"));
     }
 
     @Then("User table should contain following values:")
-    public void userTableShouldContain(List<UserTable> userTableEntity){
-        for (int i = 0; i < userTableEntity.size(); ++i){
-            assertEquals(userTablePage.numbersTexts().get(i), userTableEntity.get(i).getNumber());
-            assertEquals(userTablePage.usernameTexts().get(i), userTableEntity.get(i).getUser());
-            assertEquals(userTablePage.descriptionTexts().get(i), userTableEntity.get(i).getDescription());
-        }
+    public void userTableShouldContain(List<UserTable> userTableEntity) {
+        assertTrue(userTablePage.getUserTableData().equals(userTableEntity));
     }
 
     @DataTableType
-    public DropdownTable dropdownTable(Map<String, String> entry){
+    public DropdownTable dropdownTable(Map<String, String> entry) {
         return new DropdownTable(entry.get("Dropdown Values"));
     }
 
     @Then("droplist should contain values in column Type for user {string}")
-    public void droplistShouldContain(String name, List<DropdownTable> dropdownTable){
-        for (int i = 0; i < dropdownTable.size(); i++){
-            assertEquals(userTablePage.optionsInNumberTypeDropdown(name).get(i),
-                    dropdownTable.get(i).getDropdownValue());
-        }
+    public void droplistShouldContain(String name, List<DropdownTable> dropdownTable) {
+        assertTrue(userTablePage.getDropdownTableData(name).equals(dropdownTable));
     }
 
-    @Then("1 log row has {string} text in log section")
-    public void logrowShouldHasString(String str){
-        assertTrue(userTablePage.isLogRowContainsThatValue(str));
+    @Then("{int} log row has {string} text in log section")
+    public void logrowShouldHasString(int index, String str) {
+        assertTrue(userTablePage.isLogRowContainsThatValue(index - 1, str));
     }
 }

@@ -1,5 +1,6 @@
 package hw6.voids;
 
+import hw6.entities.LogrowTable;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -59,7 +60,12 @@ public class DifferentElementsPage extends AbstractPage {
         return logElement;
     }
 
-    public boolean logRowsElementIsDisplayed(String choosedOption, String condition){
-        return getLogRowsElements(choosedOption, condition).isDisplayed();
+    public boolean logRowsElementIsDisplayed(List<LogrowTable> logrowTables){
+        boolean elementIsDisplayed = true;
+        for(int i = 0; i < logrowTables.size(); i++) {
+            elementIsDisplayed &= getLogRowsElements(logrowTables.get(i).getLogrowValue(),
+                    logrowTables.get(i).getLogrowCondition()).isDisplayed();
+        }
+        return elementIsDisplayed;
     }
 }

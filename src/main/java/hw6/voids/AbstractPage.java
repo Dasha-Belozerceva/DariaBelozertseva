@@ -38,10 +38,10 @@ public abstract class AbstractPage extends AbstractPageComposite {
     }
 
     public void clickDifferentElementsButton() {
-        leftSidebarSectionElements.clickDifferentElementButton();
+        leftSidebarSectionElements.clickButtonOfSideBarMenu("Different elements");
     }
 
     public void clickUserTableButton(){
-        leftSidebarSectionElements.clickUserTableButton();
+        leftSidebarSectionElements.clickButtonOfSideBarMenu("User Table");
     }
 }

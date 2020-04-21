@@ -1,5 +1,7 @@
 package hw6.voids;
 
+import hw6.entities.DropdownTable;
+import hw6.entities.UserTable;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -94,8 +96,23 @@ public class UserTablePage extends AbstractPage {
         }
     }
 
-    public boolean isLogRowContainsThatValue(String value){
-        return listOfLogRow.stream()
-                .anyMatch(row -> row.getText().contains(value));
+    public boolean isLogRowContainsThatValue(int number, String value){
+        return listOfLogRow.get(number).getText().contains(value);
+    }
+
+    public List<UserTable> getUserTableData(){
+        List<UserTable> userTableData  = new ArrayList<UserTable>();
+        for (int i = 0; i < numbersTexts().size(); ++i){
+            userTableData.add(new UserTable(numbersTexts().get(i), usernameTexts().get(i), descriptionTexts().get(i)));
+        }
+        return userTableData;
+    }
+
+    public List<DropdownTable> getDropdownTableData(String name){
+        List<DropdownTable> dropdownTableData = new ArrayList<DropdownTable>();
+        for (int i = 0; i < optionsInNumberTypeDropdown(name).size(); i++){
+            dropdownTableData.add(new DropdownTable(optionsInNumberTypeDropdown(name).get(i)));
+        }
+        return dropdownTableData;
     }
 }

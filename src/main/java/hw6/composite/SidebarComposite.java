@@ -4,20 +4,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class SidebarComposite extends AbstractPageComposite {
-    @FindBy(css = ".sidebar-menu > li")
-    private List<WebElement> leftSidebarElements;
-
     @FindBy(linkText = "Service")
     private WebElement serviceButton;
 
-    @FindBy(linkText = "Different elements")
-    private WebElement differentElementsButton;
+    @FindBy(xpath = "//ul[@class='sub']/li/a")
+    private List<WebElement> subSideBarElements;
 
-    @FindBy(linkText = "User Table")
-    private WebElement userTableButton;
 
     public SidebarComposite(WebDriver driver) {
         super(driver);
@@ -27,11 +21,12 @@ public class SidebarComposite extends AbstractPageComposite {
         serviceButton.click();
     }
 
-    public void clickDifferentElementButton(){
-        differentElementsButton.click();
-    }
-
-    public void clickUserTableButton(){
-        userTableButton.click();
+    public void clickButtonOfSideBarMenu(String text){
+        for (int i = 0; i < subSideBarElements.size(); ++i){
+            if (text.equals(subSideBarElements.get(i).getText())){
+                subSideBarElements.get(i).click();
+                break;
+            }
+        }
     }
 }
