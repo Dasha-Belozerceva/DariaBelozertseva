@@ -36,7 +36,7 @@ public class ResultsComposite extends AbstractPageComposite {
     public String getElementResultText() {
         try {
             return elementResult.getText() + "\n";
-        } catch (NoSuchElementException _) {
+        } catch (NoSuchElementException e) {
             return "";
         }
     }

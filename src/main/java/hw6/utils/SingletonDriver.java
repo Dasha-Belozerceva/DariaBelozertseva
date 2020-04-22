@@ -1,4 +1,4 @@
-package hw5.baseClasses;
+package hw6.utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -12,6 +12,8 @@ public enum SingletonDriver {
     public void createDriver(String browserName) {
         if ("CHROME".equalsIgnoreCase(browserName)) {
             driver = new ChromeDriver();
+            driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+            driver.manage().window().maximize();
         }
     }
 

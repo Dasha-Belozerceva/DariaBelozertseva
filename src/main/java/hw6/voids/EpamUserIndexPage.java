@@ -1,11 +1,11 @@
-package hw3.voids;
+package hw6.voids;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +40,7 @@ public class EpamUserIndexPage extends AbstractPage {
     public EpamUserIndexPage(WebDriver driver) {
         super(driver);
         wait = new WebDriverWait(driver, 5);
+        PageFactory.initElements(driver, this);
     }
 
     public void performLogin(String login, String password) {
@@ -47,42 +48,5 @@ public class EpamUserIndexPage extends AbstractPage {
         name.sendKeys(login);
         this.password.sendKeys(password);
         loginButton.click();
-    }
-
-
-    public boolean allImagesAreDisplayed(){
-        boolean isDisplayed = true;
-        for(WebElement webElement: this.listOfImages){
-            isDisplayed = (isDisplayed)&&(webElement.isDisplayed());
-        }
-        return isDisplayed;
-    }
-
-    public int getListOfImagesSize(){
-        return this.listOfImages.size();
-    }
-
-    public int getTextUnderImagesSize() {
-        return this.textUnderImagesElements.size();
-    }
-
-    public List<String> getTextUnderImages() {
-        List<String> actualTextUnderImages = new ArrayList<String>();
-        for (WebElement element : textUnderImagesElements) {
-            actualTextUnderImages.add(element.getText());
-        }
-        return actualTextUnderImages;
-    }
-
-    public boolean iframeIsDisplayed(){
-        return this.iframe.isDisplayed();
-    }
-
-    public boolean iframeButtonIsDisplayed(){
-        return this.frameButton.isDisplayed();
-    }
-
-    public void switchToIframe() {
-        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
     }
 }
