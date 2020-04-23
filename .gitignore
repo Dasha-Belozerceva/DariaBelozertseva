@@ -1,7 +1,15 @@
-target
+/target/
+
 *.iml
-.idea
+
+/.idea/
+
+.war
+.class
+.log
+
 **/*.png
+
 **/.DS_Store
 **/allure-results
 **/.allure
