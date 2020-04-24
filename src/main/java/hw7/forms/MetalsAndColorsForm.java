@@ -43,6 +43,7 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
         }
         colors.select(metalsAndColorsData.getColor());
         metals.select(metalsAndColorsData.getMetals());
+        
         vegetables.select("Vegetables");
         for(String el : metalsAndColorsData.getVegetables()){
             vegetables.select(el);
