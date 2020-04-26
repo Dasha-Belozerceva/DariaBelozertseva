@@ -8,8 +8,6 @@ import hw7.entities.User;
 import hw7.forms.LoginForm;
 import lombok.Getter;
 
-import java.awt.*;
-
 @Getter
 public class JdiHomePage extends WebPage {
     @Css("#user-icon")

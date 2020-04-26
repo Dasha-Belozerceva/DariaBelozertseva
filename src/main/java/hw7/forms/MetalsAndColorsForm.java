@@ -3,8 +3,7 @@ package hw7.forms;
 import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
 import com.epam.jdi.light.elements.composite.Form;
-import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
-import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.*;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 import hw7.entities.MetalsAndColorsData;
 
@@ -34,7 +33,7 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
     @Css("#submit-button")
     private Button submitButton;
 
-    public void fillMetalsAndColorsForm(MetalsAndColorsData metalsAndColorsData){
+    public void submitMetalsAndColorsForm(MetalsAndColorsData metalsAndColorsData){
         for(int i : metalsAndColorsData.getSummary()){
             summary.select(String.valueOf(i));
         }
@@ -43,13 +42,10 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
         }
         colors.select(metalsAndColorsData.getColor());
         metals.select(metalsAndColorsData.getMetals());
-        
         vegetables.select("Vegetables");
         for(String el : metalsAndColorsData.getVegetables()){
             vegetables.select(el);
         }
-    }
-    public void clickSubmitButton(){
         submitButton.click();
     }
 }
