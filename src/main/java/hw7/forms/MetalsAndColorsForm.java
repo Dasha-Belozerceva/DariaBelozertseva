@@ -33,17 +33,17 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
     @Css("#submit-button")
     private Button submitButton;
 
-    public void submitMetalsAndColorsForm(MetalsAndColorsData metalsAndColorsData){
-        for(int i : metalsAndColorsData.getSummary()){
+    public void submitMetalsAndColorsForm(MetalsAndColorsData metalsAndColorsData) {
+        for (int i : metalsAndColorsData.getSummary()) {
             summary.select(String.valueOf(i));
         }
-        for(String el : metalsAndColorsData.getElements()){
+        for (String el : metalsAndColorsData.getElements()) {
             elements.select(el);
         }
         colors.select(metalsAndColorsData.getColor());
         metals.select(metalsAndColorsData.getMetals());
         vegetables.select("Vegetables");
-        for(String el : metalsAndColorsData.getVegetables()){
+        for (String el : metalsAndColorsData.getVegetables()) {
             vegetables.select(el);
         }
         submitButton.click();
