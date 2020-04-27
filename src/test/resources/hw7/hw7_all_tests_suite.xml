@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Jdi Site Tests suite">
+
+    <test name="jdiTest">
+        <packages>
+            <package name="hw7.*"/>
+        </packages>
+    </test>
+</suite>
