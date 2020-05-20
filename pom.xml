@@ -325,7 +325,7 @@
         <profile>
             <id>HW9_Correct_request_suite</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw9/CorrectRequestHW9.xml</suite.xml>
@@ -349,6 +349,16 @@
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw9/InvalidRequestsHW9.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW9_All_Tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw9/AllTestsHW9.xml</suite.xml>
             </properties>
         </profile>
     </profiles>

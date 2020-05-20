@@ -1,15 +1,15 @@
 package hw9.service;
 
 import hw9.utils.PropertiesDataInitializer;
+import static hw9.service.RestSpellerService.TEXT_PARAM;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import java.util.Map;
-import static hw9.service.RestSpellerService.TEXT_PARAM;
 import static io.restassured.RestAssured.given;
+import java.util.Map;
 
 public class BaseRestService {
     private RequestSpecification REQUEST_SPECIFICATION;
