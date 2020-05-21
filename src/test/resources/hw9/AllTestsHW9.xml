@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="All Tests HW9 suite">
+
+    <test name="All Tests">
+        <packages>
+            <package name="hw9.tests.*"/>
+        </packages>
+    </test>
+</suite>

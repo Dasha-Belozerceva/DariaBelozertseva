@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Speller Rest API Ivalid Requests Test Suite">
+    <test name="checkInvalidRequests">
+        <classes>
+            <class name="hw9.tests.InvalidRequestTests"/>
+        </classes>
+    </test>
+</suite>
